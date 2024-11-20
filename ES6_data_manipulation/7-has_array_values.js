@@ -1,4 +1,4 @@
 /*eslint-disable*/
-export default function hasArrayValues(array, values) {
-  return values.every((value) => array.includes(value));
+export default function hasArrayValues(set, array) {
+  return array.every((value) => set.includes(value));
 }
