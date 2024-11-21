@@ -2,7 +2,7 @@
 import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
-export default async function handleProfileSignup(firstName, lastName, fileName) {
+export default async function (firstName, lastName, fileName) {
     const signUpPromise = signUpUser(firstName, lastName);
     const uploadPromise = uploadPhoto(fileName);
 
@@ -11,4 +11,4 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
         status: result.status,
         value: result.status === 'fulfilled' ? result.value : result.reason,
     }));
-}
+};
