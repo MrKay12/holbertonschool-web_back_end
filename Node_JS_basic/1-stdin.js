@@ -1,13 +1,15 @@
 // ask name of user
 
-process.stdout.write("Welcome to Holberton School, what is your name?\n");
+const std = require('process');
 
-process.stdin.on('data', (data) => {
-    const name = data.toString().trim();
-    process.stdout.write(`Your name is: ${name}\n`);
-    process.exit();
+std.stdout.write('Welcome to Holberton School, what is your name?\n');
+std.stdin.on('readable', () => {
+  const name = std.stdin.read();
+  if (name) {
+    std.stdout.write(`Your name is: ${name}`);
+  }
 });
 
-process.on('exit', () => {
-    console.log("This important software is now closing\n");
+std.stdin.on('end', () => {
+  console.log('This important software is now closing');
 });
